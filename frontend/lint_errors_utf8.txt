@@ -1,0 +1,233 @@
+﻿
+> frontend@0.0.0 lint
+> eslint .
+
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\components\AssignTicketModal.jsx
+  25:18  error  'error' is defined but never used  no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\components\ChatModal.jsx
+  24:8  warning  React Hook useEffect has a missing dependency: 'fetchMessages'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\components\NotificationManager.jsx
+  37:21  error    Error: Cannot access variable before it is declared
+
+`showNotification` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  35 |     
+  36 |                 if (!isChatOpen || chatRecipient?.id !== msg.senderId) {
+> 37 |                     showNotification(msg);
+     |                     ^^^^^^^^^^^^^^^^ `showNotification` accessed before it is declared
+  38 |                 }
+  39 |             });
+  40 |     
+
+   82 |     }, [stompClient, isConnected, user, isChatOpen, chatRecipient]);
+   83 |
+>  84 |     const showNotification = async (msg) => {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  85 |         try {
+      | ^^^^^^^^^^^^^
+>  86 |             // Fetch sender info to show name
+      ΓÇª
+      | ^^^^^^^^^^^^^
+> 115 |         }
+      | ^^^^^^^^^^^^^
+> 116 |     };
+      | ^^^^^^^ `showNotification` is declared here
+  117 |
+  118 |     const openChat = (sender) => {
+  119 |         setChatRecipient(sender);  react-hooks/immutability
+  82:8   warning  React Hook useEffect has missing dependencies: 'navigate' and 'showNotification'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\components\Sidebar.jsx
+  80:48  error  'Icon' is defined but never used  no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\components\StatCard.jsx
+  1:56  error  'Icon' is defined but never used  no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\context\AuthContext.jsx
+  12:19  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  10 |         const stored = localStorage.getItem('user');
+  11 |         if (stored) {
+> 12 |             try { setUser(JSON.parse(stored)); } catch { }
+     |                   ^^^^^^^ Avoid calling setState() directly within an effect
+  13 |         }
+  14 |         setLoading(false);
+  15 |     }, []);  react-hooks/set-state-in-effect
+  12:56  error  Empty block statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-empty
+  55:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-refresh/only-export-components
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\context\ToastContext.jsx
+  6:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\context\WebSocketContext.jsx
+   1:58  error    'useRef' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  16:17  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  14 |             if (stompClient) {
+  15 |                 stompClient.deactivate();
+> 16 |                 setStompClient(null);
+     |                 ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  17 |                 setIsConnected(false);
+  18 |             }
+  19 |             return;  react-hooks/set-state-in-effect
+  53:8   warning  React Hook useEffect has a missing dependency: 'stompClient'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+  71:14  error    Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-refresh/only-export-components
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\admin\AdminAssets.jsx
+  39:23  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  37 |
+  38 |     // Use useEffect to load data initially when the component mounts
+> 39 |     useEffect(() => { load(); }, []);
+     |                       ^^^^ Avoid calling setState() directly within an effect
+  40 |
+  41 |     // Function to open the modal in 'Create' mode
+  42 |     const openCreate = () => { setEditAsset(null); setForm(initialForm); setModal(true); };  react-hooks/set-state-in-effect
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\admin\AdminComplaints.jsx
+  51:13  error  'user' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\admin\AdminLeaves.jsx
+   5:10  error  'getProfilePicUrl' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  18:18  error  'err' is defined but never used                                                          no-unused-vars
+  34:18  error  'err' is defined but never used                                                          no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\admin\AdminTechnicians.jsx
+  2:26  error  'getTicketsByTechnician' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\admin\AdminTickets.jsx
+   2:22  error  'getUsersByRole' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  24:23  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  22 |     };
+  23 |
+> 24 |     useEffect(() => { load(); }, []);
+     |                       ^^^^ Avoid calling setState() directly within an effect
+  25 |
+  26 |     const filtered = tickets
+  27 |         .filter(t => filterStatus === 'ALL' || t.status === filterStatus)  react-hooks/set-state-in-effect
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\admin\AdminUsers.jsx
+  18:23  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  16 |     };
+  17 |
+> 18 |     useEffect(() => { load(); }, []);
+     |                       ^^^^ Avoid calling setState() directly within an effect
+  19 |
+  20 |     const handleDelete = async (id) => {
+  21 |         if (!window.confirm('Delete this user?')) return;  react-hooks/set-state-in-effect
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\admin\ManageSubscriptions.jsx
+  23:18  error  'error' is defined but never used  no-unused-vars
+  54:18  error  'error' is defined but never used  no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\shared\Notifications.jsx
+  43:9   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  41 |
+  42 |     useEffect(() => { 
+> 43 |         load(); 
+     |         ^^^^ Avoid calling setState() directly within an effect
+  44 |     }, [user]);
+  45 |
+  46 |     useEffect(() => {  react-hooks/set-state-in-effect
+  44:8   warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/exhaustive-deps
+  67:18  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-unused-vars
+  77:18  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\shared\Payments.jsx
+   6:42  error    'createPayment' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           no-unused-vars
+  38:23  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  36 |
+  37 |     // Use the useEffect hook to load payments when the component mounts or user changes
+> 38 |     useEffect(() => { load(); }, [user]);
+     |                       ^^^^ Avoid calling setState() directly within an effect
+  39 |
+  40 |     // Define async function to handle the confirmation of a payment
+  41 |     const handlePay = async () => {  react-hooks/set-state-in-effect
+  38:34  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\shared\Profile.jsx
+   62:22  error  'err' is defined but never used  no-unused-vars
+   97:18  error  'err' is defined but never used  no-unused-vars
+  116:18  error  'err' is defined but never used  no-unused-vars
+  147:18  error  'err' is defined but never used  no-unused-vars
+  167:18  error  'err' is defined but never used  no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\technician\SubscriptionPayment.jsx
+  26:18  error    'error' is defined but never used                                                                                                       no-unused-vars
+  45:8   warning  React Hook useEffect has missing dependencies: 'fetchLatestUser' and 'loadHistory'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  59:18  error    'error' is defined but never used                                                                                                       no-unused-vars
+  89:18  error    'error' is defined but never used                                                                                                       no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\technician\TechnicianDashboard.jsx
+  47:8   warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  55:18  error    'error' is defined but never used                                                                            no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\technician\TechnicianSchedule.jsx
+  23:18  error    'err' is defined but never used                                                                                 no-unused-vars
+  32:8   warning  React Hook useEffect has a missing dependency: 'fetchLeaves'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  67:18  error    'err' is defined but never used                                                                                 no-unused-vars
+  80:18  error    'err' is defined but never used                                                                                 no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\technician\TechnicianTickets.jsx
+  28:34  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  47:18  error    'error' is defined but never used                                                                        no-unused-vars
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\user\MyTickets.jsx
+  35:8  warning  React Hook useEffect has a missing dependency: 'loadTickets'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  41:8  warning  React Hook useEffect has a missing dependency: 'loadTickets'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Vithu\Desktop\ITP_Project\frontend\src\pages\user\UserDashboard.jsx
+  43:18  error    'error' is defined but never used                                                                             no-unused-vars
+  52:8   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Γ£û 53 problems (41 errors, 12 warnings)
+
